@@ -1,0 +1,46 @@
+<div>
+    <h4>Thông Tin Đơn Hàng</h4>
+    <h2>Khách Hàng : {{$customer->name}}</h2>
+    <h4>Mã ĐH : {{$orders->id}}</h4>
+    <h4>Ngày Đặt : {{$orders->created_at->format(d/m/Y)}}</h4>
+
+
+
+    <div class="table-responsive">
+        <table border="1" class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Stt</th>
+                    <th>Tên Sản Phẩm</th>
+                    <th>Hình Ảnh</th>
+                    <th>Giá</th>
+                    <th>Số Lượng</th>
+                    <th>Thành Tiền</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($order->detail as $dt)
+                <tr>
+                    <td>{{loop ->index + 1}}</td>
+                    <td>{{$dt->product->name}}</td>
+                    <td>{{$dt->image}}</td>
+                    <td>{{$dt->price}}</td>
+                    <td>{{$dt->status}}</td>
+                    <td>{{$dt->total}}</td>
+                    <td>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+
+    <h4>Tổng Giá Trị Hóa Đơn : {{$order->total}}</h4>
+    <a href="{{route('cart.orderEmail', $order->token)}}" style=" border-radius: 10px ; padding: 10px 10px; border:2px solid #000; background-color:  rgb(79, 246, 79); color: black; text-decoration: none;" >Xác Nhận</a>
+
+
+
+
+
+</div>
