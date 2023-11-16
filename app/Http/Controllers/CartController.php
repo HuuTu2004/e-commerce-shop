@@ -18,8 +18,14 @@ class CartController extends Controller
         
         return view('cart.view', compact('cart'));
     }
-    function add(Cart $cart, Product $product) {
-        $quantity = request('quantity',1);
+    function add(Cart $cart, Product $product,Request $req) {
+        if($req->only('quantity')){
+            $quantity = $req->input('quantity');
+        }
+        else {
+            $quantity = request('quantity',1);
+        }
+
         $cart->add($product, $quantity);
         return redirect()->route('cart.view')->with('ok','Thêm giỏ hàng thành công');
     }

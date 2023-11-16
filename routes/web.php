@@ -9,6 +9,8 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductDetailController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\FlashsaleController;
+use App\Http\Controllers\OrderDetailController;
+use App\Http\Controllers\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,10 +57,16 @@ Route::group(['prefix' => 'admin', 'middleware' =>'auth'], function() {
         Route::delete('/{product}', [ProductController::class, 'destroy'])->name('admin.product.destroy');
 
     });
-    
-    Route::group(['prefix' => 'flash-sales'], function () {
-        Route::get('/list',[FlashsaleController::class, 'list'])->name('flash-sales.list');
-        Route::put('/update/{time}', [FlashsaleController::class, 'update'])->name('flash-sales.update');
+    Route::group(['prefix' => 'orderDetail'], function () {
+        Route::get('/index',[OrderDetailController::class, 'index'])->name('orderDetail.index');
+        Route::get('/trash',[OrderDetailController::class, 'trash'])->name('orderDetail.trash');
+        Route::match(['get', 'post'],'/update/{order_id}', [OrderDetailController::class, 'confirmOrder'])->name('orderDetail.confirmOrder');
+        Route::match(['get', 'post'],'/delete/{order_id}', [OrderDetailController::class, 'deleteOrder'])->name('orderDetail.deleteOrder');
+    });
+    Route::group(['prefix' => 'blog'], function () {
+        Route::get('/list',[BlogController::class, 'list'])->name('blog.list');
+        Route::get('/create',[BlogController::class, 'create'])->name('blog.create');
+        Route::put('/update/{time}', [BlogController::class, 'update'])->name('blog.update');
       
     });
 });

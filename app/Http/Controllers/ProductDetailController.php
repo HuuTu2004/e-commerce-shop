@@ -60,7 +60,7 @@ class ProductDetailController extends Controller
             'comment_id' => $req->comment_id,
             'name_reply' => $req->name_reply,
             'user_comment' => $req->user_comment,
-          'reply_text' => $req->reply_text,
+            'reply_text' => $req->reply_text,
         ];
         Reply::create($data);
         return redirect()->back()->with('success','Trả lời thành công');

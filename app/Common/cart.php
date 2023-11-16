@@ -14,7 +14,7 @@ class Cart {
 
     public function add($product, $quantity) {
         if (isset($this->items[$product->id])) {
-            $this->items[$product->id]->quantity +=1;
+            $this->items[$product->id]->quantity += $quantity?$quantity:1;
         } else {
             $item = (object)[
                 'id' => $product->id,

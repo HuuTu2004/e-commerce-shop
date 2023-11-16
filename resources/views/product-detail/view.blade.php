@@ -42,7 +42,7 @@
                 </ul>
                 <br>
                 <div class="product__details__quantity">
-                    <form action="{{route('cart.add', $product ->id)}}" method="post">
+                    <form action="{{route('cart.add', $product ->id)}}" method="get">
                         @csrf
                         <div class="quantity">
                             <div class="pro-qty">
@@ -52,7 +52,7 @@
                         </div>
                         <div class="button-container">
                             <button type="submit" class="primary-btn">
-                                <i class="fa fa-cart-arrow-down" aria-hidden="true"></i> ADD TO CART
+                                <i class="fa fa-cart-arrow-down"></i> ADD TO CART
                             </button>
                         </div>
                     </form>

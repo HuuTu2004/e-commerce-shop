@@ -3,15 +3,28 @@
 <div class="box-body">
  
 <div class="table-responsive">
+<form action="" method="get" class="form-inline" >
 
-    <form action="" method="GET" class="form-inline" role="form">
-        @csrf
-        <div class="form-group">
-            <input type="text" class="form-control" name="key" placeholder="Input field">
-        </div>
+                        <div class="form-group">
+          
+                            <input type="text" class="form-control" name="key" placeholder="Input name">
+                        </div>
+                        <div class="form-group">
+                            
+                            <select name="category_id" id="inputcategory_id" class="form-control">
+                                <option value="">Chọn Danh mục</option>
+                               
+                                @foreach($category as $cat)
+                                <option value="{{$cat->id}}">{{$cat->name}}</option>
+                                @endforeach
+                            </select>
+                            
+                        </div>
 
-        <button type="submit" class="btn btn-success"> Search</button>
-    </form>
+
+
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i>Tìm kiêm</button>
+                    </form>
     <br>
     @if(session()->has('ok'))
     <div class="alert alert-success">{{session()->get('ok')}}</div>

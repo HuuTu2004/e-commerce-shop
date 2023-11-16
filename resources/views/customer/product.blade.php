@@ -10,22 +10,7 @@
 
 <div class="container product text-center" id="menu">
 
-    <form action="" method="get" class="form-inline" role="form" >
-
-        <div class="form-group">
-            @csrf
-
-            <input type="text" class="form-control" name="key" placeholder="Input Search Product" >
-
-        </div>
-
-
-
-        <button type="submit" class="btn btn-success" href="#pro"><i class="fa fa-search"></i></button>
-    </form>
-
-    <br>
-
+ 
 
     <div class="container prod">
         <ul class="filters_menu">

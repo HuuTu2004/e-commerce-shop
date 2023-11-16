@@ -65,6 +65,7 @@ CREATE TABLE order_detail
     price float NOT NULL,
     quantity int NOT NULL,
     customer_id int NOT NULL,
+    status int NOT NULL DEFAULT 0,
     FOREIGN KEY (customer_id) REFERENCES customer(id),
     FOREIGN KEY (order_id) REFERENCES orders(id),
     FOREIGN KEY (product_id) REFERENCES product(id),
@@ -105,14 +106,7 @@ CREATE TABLE reply (
     
 );
 
-CREATE TABLE flashsale (
-  id INT PRIMARY KEY AUTO_INCREMENT,
- hour INT NOT NULL DEFAULT 0,
-  minute INT NOT NULL DEFAULT 0,
-  second INT NOT NULL DEFAULT 0,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+
 CREATE TABLE ratings (
     id INT AUTO_INCREMENT PRIMARY KEY,
     rateStar INT,

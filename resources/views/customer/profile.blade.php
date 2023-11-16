@@ -135,10 +135,11 @@
                         <thead>
                             <tr>
                                 <th>Stt</th>
-                                <th>Tên Sản Phẩm</th>
-                                <th>Giá Sản Phẩm</th>
+                                <th>Tên </th>
+                                <th>Giá </th>
                                 <th>Số Lượng</th>
                                 <th>Tổng Tiền</th>
+                                <th>Trạng thái</th>
                                 <th>Ngày Đặt Hàng</th>
                             </tr>
                         </thead>
@@ -151,6 +152,14 @@
                                 <td>{{$hs->product->price}}</td>
                                 <td>{{$hs->quantity}}</td>
                                 <td>${{$hs->product->price*$hs->quantity}}</td>
+                                @if($hs->status == 0 )
+                                <td>Chưa Xác Nhận</td>
+                                @elseif($hs->status == 1)
+                                <td>Đã Xác Nhận</td>
+                                @else
+                                <td>Đã Bị Hủy Bởi Người Bán</td>
+
+                                @endif
                                 <td>{{$hs->created_at}}</td>
                             </tr>
                             @endforeach

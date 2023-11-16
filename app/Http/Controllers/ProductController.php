@@ -9,9 +9,9 @@ use App\Models\Product;
 class ProductController extends Controller
 {
     public function list(Category $category, Product $product, Request $req) {
-        $key = $req->key;
+        
         $category = Category::all();
-        $product = Product::orderBy('id', 'DESC')->where('name', 'LIKE', '%'.$key.'%')->paginate(2);
+        $product = Product::orderBy('id', 'DESC')->Search()->paginate(10);
         return view('admin.product.list', compact('category', 'product'));
     }
 

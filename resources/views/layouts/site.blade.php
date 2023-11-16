@@ -12,7 +12,6 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
-    <link rel="stylesheet" href="site/css/linearicons.css">
     <link rel="stylesheet" href="site/css/font-awesome.min.css">
     <link rel="stylesheet" href="site/css/bootstrap.css">
     <link rel="stylesheet" href="site/css/owl.carousel.css">
@@ -43,9 +42,21 @@
 
         <div class="container">
             <ul class="menu">
-                <li class="logo"><a href="{{ route('customer.home')}}">Home</a></li>
+                <li class="logo"><a href="{{ route('customer.home')}}"><img src="site/img/logo.png" alt=""></a></li>
+                
+                <li class="nav">
+                    <form action="{{ route('customer.product')}}" method="get" class="form-inline" role="form">
+                    
+                        <div class="form-group  formSearch">
+                            <input type="text" class="form-control inputSearch" name="key" style="z-index: 1;" placeholder="Tìm kiếm sản phẩm">
+                            <button type="submit" class="btn btnSearch"><i class="fa fa-search"></i></button>
+                        </div>
+                        
+                    </form>
+            
+                </li>
+                <li class="nav "><a class="nav-link" href="{{ route('customer.about')}}">Contact Us</a></li>
                 <li class="nav "><a class="nav-link" href="{{ route('customer.product')}}">Product</a></li>
-                <li class="nav"><a class="nav-link" href="{{ route('customer.about')}}">About</a></li>
                 <li class="nav"><a class="nav-link" href="{{ route('admin.home')}}">Admin</a></li>
                
                 @if(auth('cus')->check())
@@ -67,7 +78,7 @@
                 <li class="nav button secondary"><a class="nav-link" href="{{route('cart.view')}}"><i
                             class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
                 <li class="toggle"><span class="bars"></span></li>
-
+                
 
 
             </ul>

@@ -6,11 +6,16 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\User;
+use App\Models\OrderDetail;
+use App\Models\Customer;
 
 class CategoryController extends Controller
 {
     public function home() {
-        return view('admin.home');
+        $newOrder = OrderDetail::count();
+        $cus = Customer::count();
+        $pro = Product::count();
+        return view('admin.home',compact('newOrder','cus','pro'));
     }
     public function list(Category $category, Request $req) {
         $key = $req->key;
