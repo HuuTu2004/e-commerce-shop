@@ -117,9 +117,7 @@ CREATE TABLE ratings (
     FOREIGN KEY (product_id) REFERENCES product(id),
     FOREIGN KEY (customer_id) REFERENCES customer(id)
 );
-INSERT INTO `flashsale`(`hour`, minute, second) VALUES
-(0, 0, 0)
-;
+
 INSERT INTO `category`(`name`) VALUES
 ('rau'),
 ('củ'),

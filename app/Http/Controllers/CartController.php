@@ -41,7 +41,9 @@ class CartController extends Controller
         return redirect()->route('cart.view')->with('ok','Cập nhật giỏ hàng thành công');
     }
 
-    function clear() {
+    function clear(Cart $cart) {
+        $cart->clear();
+        return redirect()->route('customer.home');
         
     }
 

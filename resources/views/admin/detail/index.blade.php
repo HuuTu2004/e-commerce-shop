@@ -62,6 +62,7 @@
         </table>
 
     </div>
+    {{$orderDetail->links()}}
 
 </div>
 </div>
@@ -108,6 +109,7 @@
             </table>
 
         </div>
+        {{$confirm ->links()}}
     </div>
   
 

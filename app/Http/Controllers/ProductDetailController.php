@@ -21,8 +21,11 @@ class ProductDetailController extends Controller
             $userRating = Rating::where('product_id',  $product->id)
             ->where('customer_id',auth('cus')->user()->id)
             ->value('rateStar');
+        }else {
+            $userRating = 0;
         }
-        $userRating = 0;
+       
+        
         
         return view('product-detail.view',compact('product',"comments","reply","ratingAvg","reviews",'userRating'));
     }

@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="assetadmin/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="assetadmin/dist/css/skins/_all-skins.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body class="hold-transition skin-purple sidebar-mini">
@@ -61,12 +62,14 @@
         <div class="control-sidebar-bg"></div>
     </div>
     <!-- JavaScript -->
+    
     <script src="assetadmin/plugins/jQuery/jQuery-2.2.0.min.js"></script>
     <script src="assetadmin/bootstrap/js/bootstrap.min.js"></script>
     <script src="assetadmin/plugins/slimScroll/jquery.slimscroll.min.js"></script>
     <script src="assetadmin/plugins/fastclick/fastclick.js"></script>
     <script src="assetadmin/dist/js/app.min.js"></script>
     <script src="assetadmin/dist/js/demo.js"></script>
+   
     @yield('js')
 </body>
 

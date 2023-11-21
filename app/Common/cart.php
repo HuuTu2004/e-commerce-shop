@@ -19,7 +19,7 @@ class Cart {
             $item = (object)[
                 'id' => $product->id,
                 'name' => $product->name,
-                'price' => $product->sale_price ? $product->sale_price : $product->price,
+                'price' => $product->price ?( $product->price - $product->sale_price) : $product->price,
                 'image' => $product->image,
                 'quantity' => $quantity
             ];

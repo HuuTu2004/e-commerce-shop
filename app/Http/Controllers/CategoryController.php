@@ -12,10 +12,15 @@ use App\Models\Customer;
 class CategoryController extends Controller
 {
     public function home() {
+        $data = OrderDetail::calculateTotal();
+        if(!$data) {
+            $data = 0;
+        }
+        
         $newOrder = OrderDetail::count();
         $cus = Customer::count();
         $pro = Product::count();
-        return view('admin.home',compact('newOrder','cus','pro'));
+        return view('admin.home',compact('newOrder','cus','pro','data'));
     }
     public function list(Category $category, Request $req) {
         $key = $req->key;

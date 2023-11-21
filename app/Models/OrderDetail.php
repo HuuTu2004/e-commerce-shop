@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Support\Facades\DB;
 class OrderDetail extends Model
 {
     use HasFactory;
@@ -18,5 +18,12 @@ class OrderDetail extends Model
     }
     public function customer(){
         return $this->hasOne(Customer::class, 'id', 'customer_id');
+    }
+    public static function calculateTotal()
+    {
+        return static::selectRaw('MONTH(created_at) as month, SUM(price * quantity) as total')
+            ->where('status', '=', 1)
+            ->groupBy(DB::raw('MONTH(created_at)'))
+            ->get();
     }
 }

@@ -10,7 +10,6 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\Customer;
 use App\Models\Comment;
-use App\Models\Flashsale;
 use App\Models\OrderDetail;
 use App\Models\Favorites;
 use App\Mail\Contact;
@@ -21,13 +20,9 @@ use Mail;
 class CustomerController extends Controller
 {
     public function home(Category $category, Product $product){
-        $time = Flashsale::find(1);
-        $sale =  Product::where('sale_price', '>', 0)->get();
         $category = Category::all();
         $product = Product::limit(8)->get();
-
-        $isTimeGreaterThanZero = $time->hour > 0 || $time->minute > 0 || $time->second > 0;
-        return view('customer.home', compact('category', 'product','sale','time','isTimeGreaterThanZero'));    
+        return view('customer.home', compact('category', 'product'));    
     }
 
     public function product(Category $category, Product $product, Request $req){

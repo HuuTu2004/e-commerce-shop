@@ -57,7 +57,6 @@
                 </li>
                 <li class="nav "><a class="nav-link" href="{{ route('customer.about')}}">Contact Us</a></li>
                 <li class="nav "><a class="nav-link" href="{{ route('customer.product')}}">Product</a></li>
-                <li class="nav"><a class="nav-link" href="{{ route('admin.home')}}">Admin</a></li>
                
                 @if(auth('cus')->check())
                 <li class="nav"><a class="nav-link text-danger" href="{{route('customer.profile')}}">Hi <i
